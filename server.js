@@ -7,6 +7,7 @@ const io = new Server(server);
 
 io.on('connection', (socket) =>{
   console.log('socket connected', socket.id);
+  
 });
 
 const PORT = process.env.PORT || 5000;
