@@ -24,8 +24,6 @@ const EditorPage = () => {
       reactNavigator('/');
      }
 
-
-
       socketRef.current.emit(ACTIONS.JOIN,{
         roomId,
         username: location.state?.username,
@@ -53,13 +51,8 @@ const EditorPage = () => {
       socketRef.current.disconnect();
       socketRef.current.off(ACTIONS.JOINED);
       socketRef.current.off(ACTIONS.DISCONNECTED);
-
-
-    }
+    };
  },[]);
-
-
-
   
   if(!location.state){
     return   <Navigate  to ="/" />;
@@ -86,7 +79,7 @@ const EditorPage = () => {
       </div>
 
       <div className="editorWrap">
-        <Editor />
+        <Editor socketRef={socketRef} roomId={roomId}/>
       </div>
     </div>
   );
